@@ -1,2 +1,21 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<spacer style="padding: 20px;">
+<h1>Admin » Dashboard</h1>
+<hr>
+
+<p>There are <%= Product.count %> total products.</p>
+<% Product.all.to_a.each do |product| %>
+  <div class="product-dashboard">
+    <img src="<%= product.image %>">
+    <div>
+      <a href="products/<%= product.id %>"><%= product.name %></a>
+      <p>Stock: <%= product.quantity %></p>
+    </div>
+  </div>
+<% end %>
+
+There are <%= Category.count %> categories.
+<% Category.all.to_a.each do |category| %>
+  <div>
+    <a href="categories/<%= category.id %>"><%= category.name %></a>
+  </div>
+<% end %>
