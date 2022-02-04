@@ -1,0 +1,9 @@
+<% line_item = LineItem.find_by(id: id) %>
+<div class="line_item">
+  <img src="<%= line_item.product.image.tiny %>">  
+  <div>
+    <h4><%= line_item.quantity %>x <%= line_item.product.name %> - <%= humanized_money_with_symbol line_item.product.price %></h4>
+    <%= line_item.product.description %>
+  </div>
+  
+</div>
